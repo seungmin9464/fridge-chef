@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="740" viewBox="0 0 700 740" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <defs>
+    <marker id="crow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M2 2L10 6L2 10M10 6H2" fill="none" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="740" fill="#F8FAF9"/>
+
+  <!-- Title -->
+  <text x="350" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#1A1A1A">냉장고 레시피 앱 — ERD</text>
+  <text x="350" y="52" text-anchor="middle" font-size="11" fill="#888888">fridge-recipe v1.0</text>
+  <line x1="40" y1="62" x2="660" y2="62" stroke="#1D9E75" stroke-width="1.5"/>
+
+  <!-- Legend -->
+  <rect x="40" y="72" width="10" height="10" rx="2" fill="#1D9E75"/>
+  <text x="55" y="81" font-size="10" fill="#444">테이블</text>
+  <rect x="110" y="72" width="10" height="10" rx="2" fill="#0C447C"/>
+  <text x="125" y="81" font-size="10" fill="#444">PK</text>
+  <rect x="160" y="72" width="10" height="10" rx="2" fill="#BA7517"/>
+  <text x="175" y="81" font-size="10" fill="#444">FK</text>
+  <rect x="210" y="72" width="10" height="10" rx="2" fill="#888780"/>
+  <text x="225" y="81" font-size="10" fill="#444">컬럼</text>
+
+  <!-- ══════════════════════════════════
+       TABLE: users  (top-left)
+  ══════════════════════════════════ -->
+  <g id="users">
+    <rect x="30" y="100" width="185" height="174" rx="8" fill="white" stroke="#1D9E75" stroke-width="1.2"/>
+    <rect x="30" y="100" width="185" height="30" rx="8" fill="#E1F5EE"/>
+    <rect x="30" y="120" width="185" height="10" fill="#E1F5EE"/>
+    <text x="122" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">users</text>
+    <line x1="30" y1="130" x2="215" y2="130" stroke="#5DCAA5" stroke-width="0.7"/>
+    <!-- PK -->
+    <text x="44" y="148" font-size="10" fill="#0C447C" font-weight="600">PK  id</text>
+    <text x="120" y="148" font-size="10" fill="#0C447C">BIGINT  AUTO_INCREMENT</text>
+    <line x1="30" y1="154" x2="215" y2="154" stroke="#EEEEEE" stroke-width="0.5"/>
+    <!-- cols -->
+    <text x="44" y="170" font-size="10" fill="#555">email</text>
+    <text x="120" y="170" font-size="10" fill="#777">VARCHAR(100)</text>
+    <text x="44" y="186" font-size="10" fill="#555">password_hash</text>
+    <text x="120" y="186" font-size="10" fill="#777">VARCHAR(255)</text>
+    <text x="44" y="202" font-size="10" fill="#555">nickname</text>
+    <text x="120" y="202" font-size="10" fill="#777">VARCHAR(50)</text>
+    <text x="44" y="218" font-size="10" fill="#555">created_at</text>
+    <text x="120" y="218" font-size="10" fill="#777">TIMESTAMP</text>
+    <text x="44" y="234" font-size="10" fill="#555">updated_at</text>
+    <text x="120" y="234" font-size="10" fill="#777">TIMESTAMP</text>
+    <text x="44" y="265" font-size="9" fill="#1D9E75" font-style="italic">UNIQUE (email)</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       TABLE: fridge_ingredients  (top-right)
+  ══════════════════════════════════ -->
+  <g id="fridge">
+    <rect x="320" y="100" width="195" height="192" rx="8" fill="white" stroke="#1D9E75" stroke-width="1.2"/>
+    <rect x="320" y="100" width="195" height="30" rx="8" fill="#E1F5EE"/>
+    <rect x="320" y="120" width="195" height="10" fill="#E1F5EE"/>
+    <text x="417" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">fridge_ingredients</text>
+    <line x1="320" y1="130" x2="515" y2="130" stroke="#5DCAA5" stroke-width="0.7"/>
+    <text x="334" y="148" font-size="10" fill="#0C447C" font-weight="600">PK  id</text>
+    <text x="400" y="148" font-size="10" fill="#0C447C">BIGINT</text>
+    <line x1="320" y1="154" x2="515" y2="154" stroke="#EEEEEE" stroke-width="0.5"/>
+    <text x="334" y="170" font-size="10" fill="#BA7517" font-weight="600">FK  user_id</text>
+    <text x="400" y="170" font-size="10" fill="#BA7517">BIGINT</text>
+    <text x="334" y="186" font-size="10" fill="#555">name</text>
+    <text x="400" y="186" font-size="10" fill="#777">VARCHAR(100)</text>
+    <text x="334" y="202" font-size="10" fill="#555">category</text>
+    <text x="400" y="202" font-size="10" fill="#777">ENUM</text>
+    <text x="334" y="218" font-size="10" fill="#555">quantity</text>
+    <text x="400" y="218" font-size="10" fill="#777">INT DEFAULT 1</text>
+    <text x="334" y="234" font-size="10" fill="#555">added_at</text>
+    <text x="400" y="234" font-size="10" fill="#777">TIMESTAMP</text>
+    <text x="334" y="250" font-size="10" fill="#555">expires_at</text>
+    <text x="400" y="250" font-size="10" fill="#777">DATE NULL</text>
+    <text x="334" y="283" font-size="9" fill="#1D9E75" font-style="italic">IDX (user_id, category)</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       TABLE: recipes  (mid-left)
+  ══════════════════════════════════ -->
+  <g id="recipes">
+    <rect x="30" y="320" width="185" height="192" rx="8" fill="white" stroke="#1D9E75" stroke-width="1.2"/>
+    <rect x="30" y="320" width="185" height="30" rx="8" fill="#E1F5EE"/>
+    <rect x="30" y="340" width="185" height="10" fill="#E1F5EE"/>
+    <text x="122" y="340" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">recipes</text>
+    <line x1="30" y1="350" x2="215" y2="350" stroke="#5DCAA5" stroke-width="0.7"/>
+    <text x="44" y="368" font-size="10" fill="#0C447C" font-weight="600">PK  id</text>
+    <text x="120" y="368" font-size="10" fill="#0C447C">BIGINT</text>
+    <line x1="30" y1="374" x2="215" y2="374" stroke="#EEEEEE" stroke-width="0.5"/>
+    <text x="44" y="390" font-size="10" fill="#555">name</text>
+    <text x="120" y="390" font-size="10" fill="#777">VARCHAR(100)</text>
+    <text x="44" y="406" font-size="10" fill="#555">description</text>
+    <text x="120" y="406" font-size="10" fill="#777">TEXT</text>
+    <text x="44" y="422" font-size="10" fill="#555">difficulty</text>
+    <text x="120" y="422" font-size="10" fill="#777">ENUM</text>
+    <text x="44" y="438" font-size="10" fill="#555">cook_time_min</text>
+    <text x="120" y="438" font-size="10" fill="#777">INT</text>
+    <text x="44" y="454" font-size="10" fill="#555">base_servings</text>
+    <text x="120" y="454" font-size="10" fill="#777">INT DEFAULT 2</text>
+    <text x="44" y="470" font-size="10" fill="#555">created_at</text>
+    <text x="120" y="470" font-size="10" fill="#777">TIMESTAMP</text>
+    <text x="44" y="503" font-size="9" fill="#1D9E75" font-style="italic">IDX (difficulty, cook_time_min)</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       TABLE: recipe_ingredients  (mid-right)
+  ══════════════════════════════════ -->
+  <g id="recipe_ingredients">
+    <rect x="320" y="320" width="195" height="210" rx="8" fill="white" stroke="#1D9E75" stroke-width="1.2"/>
+    <rect x="320" y="320" width="195" height="30" rx="8" fill="#E1F5EE"/>
+    <rect x="320" y="340" width="195" height="10" fill="#E1F5EE"/>
+    <text x="417" y="340" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">recipe_ingredients</text>
+    <line x1="320" y1="350" x2="515" y2="350" stroke="#5DCAA5" stroke-width="0.7"/>
+    <text x="334" y="368" font-size="10" fill="#0C447C" font-weight="600">PK  id</text>
+    <text x="400" y="368" font-size="10" fill="#0C447C">BIGINT</text>
+    <line x1="320" y1="374" x2="515" y2="374" stroke="#EEEEEE" stroke-width="0.5"/>
+    <text x="334" y="390" font-size="10" fill="#BA7517" font-weight="600">FK  recipe_id</text>
+    <text x="400" y="390" font-size="10" fill="#BA7517">BIGINT</text>
+    <text x="334" y="406" font-size="10" fill="#555">name</text>
+    <text x="400" y="406" font-size="10" fill="#777">VARCHAR(100)</text>
+    <text x="334" y="422" font-size="10" fill="#555">amount</text>
+    <text x="400" y="422" font-size="10" fill="#777">DECIMAL(8,2)</text>
+    <text x="334" y="438" font-size="10" fill="#555">unit</text>
+    <text x="400" y="438" font-size="10" fill="#777">VARCHAR(20) NULL</text>
+    <text x="334" y="454" font-size="10" fill="#555">is_required</text>
+    <text x="400" y="454" font-size="10" fill="#777">BOOL DEFAULT true</text>
+    <text x="334" y="470" font-size="10" fill="#555">is_substitutable</text>
+    <text x="400" y="470" font-size="10" fill="#777">BOOL DEFAULT false</text>
+    <text x="334" y="486" font-size="10" fill="#555">display_order</text>
+    <text x="400" y="486" font-size="10" fill="#777">INT</text>
+    <text x="334" y="521" font-size="9" fill="#1D9E75" font-style="italic">IDX (recipe_id)</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       TABLE: recipe_steps  (bottom-right)
+  ══════════════════════════════════ -->
+  <g id="recipe_steps">
+    <rect x="320" y="570" width="195" height="148" rx="8" fill="white" stroke="#1D9E75" stroke-width="1.2"/>
+    <rect x="320" y="570" width="195" height="30" rx="8" fill="#E1F5EE"/>
+    <rect x="320" y="590" width="195" height="10" fill="#E1F5EE"/>
+    <text x="417" y="590" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">recipe_steps</text>
+    <line x1="320" y1="600" x2="515" y2="600" stroke="#5DCAA5" stroke-width="0.7"/>
+    <text x="334" y="618" font-size="10" fill="#0C447C" font-weight="600">PK  id</text>
+    <text x="400" y="618" font-size="10" fill="#0C447C">BIGINT</text>
+    <line x1="320" y1="624" x2="515" y2="624" stroke="#EEEEEE" stroke-width="0.5"/>
+    <text x="334" y="640" font-size="10" fill="#BA7517" font-weight="600">FK  recipe_id</text>
+    <text x="400" y="640" font-size="10" fill="#BA7517">BIGINT</text>
+    <text x="334" y="656" font-size="10" fill="#555">step_order</text>
+    <text x="400" y="656" font-size="10" fill="#777">INT</text>
+    <text x="334" y="672" font-size="10" fill="#555">title</text>
+    <text x="400" y="672" font-size="10" fill="#777">VARCHAR(100)</text>
+    <text x="334" y="688" font-size="10" fill="#555">description</text>
+    <text x="400" y="688" font-size="10" fill="#777">TEXT</text>
+    <text x="334" y="704" font-size="10" fill="#555">timer_seconds</text>
+    <text x="400" y="704" font-size="10" fill="#777">INT NULL</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       TABLE: user_favorites  (bottom-left)
+  ══════════════════════════════════ -->
+  <g id="user_favorites">
+    <rect x="30" y="570" width="185" height="148" rx="8" fill="white" stroke="#1D9E75" stroke-width="1.2"/>
+    <rect x="30" y="570" width="185" height="30" rx="8" fill="#E1F5EE"/>
+    <rect x="30" y="590" width="185" height="10" fill="#E1F5EE"/>
+    <text x="122" y="590" text-anchor="middle" font-size="12" font-weight="700" fill="#085041">user_favorites</text>
+    <line x1="30" y1="600" x2="215" y2="600" stroke="#5DCAA5" stroke-width="0.7"/>
+    <text x="44" y="618" font-size="10" fill="#0C447C" font-weight="600">PK  id</text>
+    <text x="120" y="618" font-size="10" fill="#0C447C">BIGINT</text>
+    <line x1="30" y1="624" x2="215" y2="624" stroke="#EEEEEE" stroke-width="0.5"/>
+    <text x="44" y="640" font-size="10" fill="#BA7517" font-weight="600">FK  user_id</text>
+    <text x="120" y="640" font-size="10" fill="#BA7517">BIGINT</text>
+    <text x="44" y="656" font-size="10" fill="#BA7517" font-weight="600">FK  recipe_id</text>
+    <text x="120" y="656" font-size="10" fill="#BA7517">BIGINT</text>
+    <text x="44" y="672" font-size="10" fill="#555">created_at</text>
+    <text x="120" y="672" font-size="10" fill="#777">TIMESTAMP</text>
+    <text x="44" y="688" font-size="10" fill="#555">memo</text>
+    <text x="120" y="688" font-size="10" fill="#777">TEXT NULL</text>
+    <text x="44" y="710" font-size="9" fill="#1D9E75" font-style="italic">UNIQUE (user_id, recipe_id)</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       RELATIONS
+  ══════════════════════════════════ -->
+
+  <!-- users 1 → N fridge_ingredients -->
+  <path d="M215 175 L320 175" fill="none" stroke="#5DCAA5" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#crow)"/>
+  <text x="267" y="168" text-anchor="middle" font-size="9" fill="#888">1 : N</text>
+
+  <!-- users 1 → N user_favorites -->
+  <path d="M122 512 L122 570" fill="none" stroke="#5DCAA5" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#crow)"/>
+  <text x="136" y="544" font-size="9" fill="#888">1 : N</text>
+
+  <!-- recipes 1 → N recipe_ingredients -->
+  <path d="M215 420 L320 420" fill="none" stroke="#5DCAA5" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#crow)"/>
+  <text x="267" y="413" text-anchor="middle" font-size="9" fill="#888">1 : N</text>
+
+  <!-- recipes 1 → N recipe_steps -->
+  <path d="M215 450 Q270 450 270 570" fill="none" stroke="#5DCAA5" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#crow)"/>
+  <text x="278" y="515" font-size="9" fill="#888">1 : N</text>
+
+  <!-- recipes 1 → N user_favorites (via right side) -->
+  <path d="M215 655 L245 655 L245 669 L320 669" fill="none" stroke="#5DCAA5" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#crow)"/>
+  <text x="254" y="648" font-size="9" fill="#888">N : 1</text>
+
+</svg>
